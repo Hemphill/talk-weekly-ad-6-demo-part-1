@@ -1,0 +1,471 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Front-End Stack: Weekly Ad 6 Demo</title>
+  <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+  <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
+  <!-- 
+  Themes:
+    beige.css
+    blood.css
+    default.css
+    moon.css
+    night.css
+    serif.css
+    simple.css
+    sky.css
+    solarized.css
+  -->
+  <link rel="stylesheet" href="bower_components/reveal.js/css/theme/default.css">
+  <link rel="stylesheet" href="css/customizations.css">
+  
+</head>
+<body>
+  <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="reveal">
+    <div class="slides">
+
+      <section data-markdown>
+        <script type="text/template">
+            # Front-End Stack
+
+            _of the_
+
+            ## Weekly Ad 6 Demo Site
+
+            #### Part 1: Dev Support Tools
+            
+        </script>
+      </section>
+
+      <section>
+        <h2>What is the Weekly Ad 6 Demo Site?</h2>
+        <p class="fragment roll-in" data-fragment-index="1">Demonstration of our vision... <br> for the future of digital Weekly Ads.</p>
+        <br>
+        <p class="fragment roll-in" data-fragment-index="2">Not meant to be a production system; only a front-end demo.</p>
+      </section>
+      <section>
+        <h1>Characteristics:</h1>
+        <ul>
+          <li class="fragment roll-in" data-fragment-index="1">Front-end only app</li>
+          <li class="fragment roll-in" data-fragment-index="2">No back-end API</li>
+          <li class="fragment roll-in" data-fragment-index="3">No databases</li>
+          <li class="fragment roll-in" data-fragment-index="4">All programming is in Javascript</li>
+          <li class="fragment roll-in" data-fragment-index="5">Utilizes a heavy Javascript stack.</li>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+            # Presentation Scope
+
+            High level overview of the Javascript stack  
+            _and_  
+            how the various tools work together
+            
+        </script>
+      </section>
+      <section class="js-stack-list">
+        <h1>The Javascript Stack:</h1>
+        <div class="fragment roll-in" data-fragment-index="1">
+          <h3>Dev Support Tools</h3>
+          <img class="" style="width: 94px;" src="images/logos/Yeoman/yeoman-logo.png">
+          <img class="" style="width: 130px;" src="images/logos/bower-logo.png">
+          <img class="" style="width: 94px;" src="images/logos/grunt-logo.svg">
+          <p><small>Bower</small></p>
+           <img class="" style="width: 178px;" style="" src="images/logos/nodejs-dark.png">
+          <img class="" style="width: 130px;" src="images/logos/npm.png">
+          <img class="" style="width: 178px;" src="images/logos/Karma.png">
+        </div>
+        <div class="fragment roll-in" data-fragment-index="2">
+          <h3 style="margin-top: 20px;">Front-End Tools</h3>
+          <img class="" style="width: 255px;" src="images/logos/jQuery-Logo-Dark.png">
+          <img class="" style="width: 255px;" src="images/logos/AngularJS-large.png">
+          <br>
+          <img class="" style="width: 94px;" src="images/logos/Sass/Sass-pink.png">
+          <img class="" style="width: 94px;" src="images/logos/requirejs/logo.png">
+          <img class="" style="width: 84px;" src="images/logos/bootstrap.png">
+          <p style="font-size: 10px; margin-top: 20px;">
+            * Sass and Bootstrap aren't techically Javascript, but still...
+            <br>
+            ** so what, whatever... deal. with. it.
+          </p>
+        </div>
+      </section>
+      <section>
+        <img src="images/logos/nodejs-dark.png">
+        <p>Node.js® is a platform built on Chrome's JavaScript runtime.</p>
+        <BR>
+        <h3>What we need to know... </h3>
+        <p> 
+          It allows you to run Javascript applications on the back-end like you would Ruby, Python, C or etc.
+        </p>
+        <p>It also has a nice webserver that's handy for local development.</p>
+      </section>
+      <section>
+        <img src="images/logos/nodejs-dark.png">
+        <p>
+          There is a lot more to Node than than, but... that's about all we care about for this use case. 
+        </p>
+        <p>Which leads us to...</p>
+      </section>
+      <section>
+        <img src="images/logos/npm.png">
+        <h2>Node Package Manager</h2>
+        <p>
+          The best package manager I've ever encountered. <BR>I works a lot like Ruby Gems with Bundler.
+        </p>
+      </section>
+      <section>
+        <img style="width: 200px;" src="images/logos/npm.png">
+        <p class="fragment highlight-current-red" data-fragment-index="1">Javascript packages your application depends on are listed in the package.json file.
+        </p>
+        <p class="fragment highlight-current-red" data-fragment-index="2">Using a simple json name:version syntax.</p>
+        <p><em>plus</em></p>
+        <p class="fragment highlight-current-red" data-fragment-index="3">The package.json file can be used to <br>turn your app into a npm module.</p>
+      </section>
+      <section>
+        <h3>Our package.json file</h3>
+        <pre><code data-trim class="javascript js">
+{
+  "name": "weeklyad",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "~0.4.0",
+    "grunt-bower-install": "~0.7.0",
+    "grunt-bower-requirejs": "~0.8.4",
+    "grunt-concurrent": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compass": "~0.6.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-htmlmin": "~0.1.3",
+    "grunt-contrib-imagemin": "~0.3.0",
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-google-cdn": "~0.2.0",
+    "grunt-karma": "~0.8.3",
+    "grunt-newer": "~0.5.4",
+    "grunt-ngmin": "~0.0.2",
+    "grunt-rev": "~0.1.0",
+    "grunt-svgmin": "~0.2.0",
+    "grunt-text-replace": "~0.3.11",
+    "grunt-usemin": "~2.0.0",
+    "jshint-stylish": "~0.1.3",
+    "karma": "~0.12.16",
+    "karma-ng-html2js-preprocessor": "~0.1.0",
+    "karma-ng-scenario": "~0.1.0",
+    "load-grunt-tasks": "~0.2.0",
+    "time-grunt": "~0.2.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
+    </code></pre>
+
+      </section>
+      <section>
+        <img style="width: 200px;" src="images/logos/npm.png">
+        <p>Install every depenancy listed in your package.json file with:</p>
+        <pre><code>npm install</code></pre>
+        <p>All packages are installed in a special folder:</p>
+        <pre><code>/node_modules</code></pre>
+        <p>This folder is <em>not</em> checked into your git repository.</p>
+      </section>
+      <section>
+        <h2>How do we use it?</h2>
+        <p>So at this point we have Node.js running on our machine and access to all sorts of packages to install. We might have a Sass compiler, a JS file concatinator, a JS minifier, a JS test suite and etc. etc. etc.</p>
+        <br>
+        <p>How do we use them all in a sane way?</p>
+      </section>
+      <section>
+        <img style="width: 300px;" src="images/logos/grunt-logo.svg">
+        <h2>The JavaScript Task Runner</h2>
+        <br>
+        <h3>What does it do?</h3>
+        <p>It automates. Performs repetitive tasks like minification, compilation, unit testing, linting, and etc.</p>
+      </section>
+      <section>
+        <img style="width: 180px;" src="images/logos/grunt-logo.svg">
+        <h3>How Does it work?</h3>
+        <p>In the root of your project is a file called Gruntfile.js, and in it we define all the tasks you'd like to run.</p>
+        <br>
+        <p>
+        These tasks include things like <code>grunt build</code> to compile your app for production, or <code>grunt serve --watch</code> to run a local webserver for development.</p>
+        <br>
+        <p>For our purposes, you can forget we even have a Grunt file. It's been setup already and isn't likely to need changes.</p>
+      </section>
+      <section>
+        <h1>Package management</h1>
+        <h2>Dev Support vs. Browser-side</h2>
+        <p class="fragment" data-fragment-index="1">
+          npm is a great way to manage dev support tool dependancies; those run from the command line of your machine. 
+        </p>
+        <p class="fragment" data-fragment-index="2">
+          <em>but...</em>
+        </p>
+        <p class="fragment" data-fragment-index="3">
+          What about the traditional libs, the javascript actually executed in the web browser?
+        </p>
+      </section>
+      <section>
+        <img style="width: 300px;" src="images/logos/bower-logo.png">
+        <h2>Bower</h2>
+        <p>A package manager for the web</p>
+        <br>
+        <p>The same easy to use setup we found in npm, but for Javascript libraries executed in the brower.</p>
+      </section>
+      <section>
+        <img style="width: 180px;" src="images/logos/bower-logo.png">
+        <h2>Using Bower</h2>
+        <p>Using Bower works <em>very</em> similar to using npm.</p>
+        <br>
+        <h3>The Bower.json File</h3>
+        <p>Bower uses a file that is nearly identical in format &amp; function to the npm package.json file.
+      </section>
+      <section>
+        <h3>Our bower.json file</h3>
+        <pre><code data-trim class="javascript js">
+{
+  "name": "weekly-ad",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.2.x",
+    "json3": "~3.2.6",
+    "requirejs": "~2.1.10",
+    "es5-shim": "~2.1.0",
+    "jquery": "~1.11.0",
+    "bootstrap-sass-official": "~3.1.1",
+    "angular-resource": "~1.2.x",
+    "angular-cookies": "~1.2.x",
+    "angular-sanitize": "~1.2.x",
+    "angular-route": "~1.2.x",
+    "angular-animate": "~1.2.x",
+    "slick-carousel": "1.3.6",
+    "angular-slick": "0.1.10",
+    "angular-multilevelpushmenu": "",
+    "components-font-awesome": ""
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.x",
+    "angular-scenario": "~1.2.x"
+  },
+  "resolutions": {
+    "jquery": "~1.11.0"
+  }
+}
+    </code></pre>
+      </section>
+      <section>
+        <img style="width: 180px;" src="images/logos/bower-logo.png">
+        <p>Install every depenancy listed in your bower.json file with:</p>
+        <pre><code>bower install</code></pre>
+        <p>All packages are installed in a special folder:</p>
+        <pre><code>/app/bower_components</code></pre>
+        <p>This folder is <em>not</em> checked into your git repository.</p>
+        <br>
+        <p><em>Unlike it's npm counterpart, this folder <strong>is accessable to the web server</strong> and the files <strong>can be requested from a web browser</strong>.</em></p>
+      </section>
+      <section>
+        <h2>Setting up all these tools is
+        <h1>Painful</h1>
+        <p class="fragment" data-fragment-index="1">
+          Is there an easier way to start a project, give it all these great tools, and a good file structure?
+        </p>
+      </section>
+      <section>
+        <img style="width: 374px;" src="images/logos/Yeoman/yeoman-logo.png">
+        <p>The Web's Scaffolding Tool for Modern Webapps</p>
+        <br>
+        <p>Yeoman creates new projects, with great tools and great default settings. It provides a great structure for your app to help you be more productive through following best pratices.</p>
+      </section>
+      <section>
+        <img style="width: 187px;" src="images/logos/Yeoman/yeoman-logo.png">
+        <h3>Installs and configures your desired tool stack</h3>
+        <p>Select a generator with the stack you'd like to use.</p>
+        <img class="" style="width: 110px;" src="images/logos/bower-logo.png">
+        <img class="" style="width: 178px; margin-bottom: 30px;" src="images/logos/Karma.png">
+        <img class="" style="width: 94px;" src="images/logos/grunt-logo.svg">
+        <br>
+        <img class="" style="width: 255px;" src="images/logos/jQuery-Logo-Dark.png">
+        <img class="" style="width: 255px;" src="images/logos/AngularJS-large.png">
+        <br>
+        <img class="" style="width: 110px;" src="images/logos/Sass/Sass-pink.png">
+        <img class="" style="width: 94px;" src="images/logos/requirejs/logo.png">
+        <img class="" style="width: 84px;" src="images/logos/bootstrap.png">
+        <p>We used a generator named generator-angular-require. It installs and configures all the tools listed above.</p>
+      </section>
+      <section>
+        <img style="width: 187px;" src="images/logos/Yeoman/yeoman-logo.png">
+        <h3>Makes creating new apps easy</h3>
+        <ol>
+          <li>
+            <p>Install a generator</p>
+            <pre><code>npm install -g generator-angular-require</code></pre>
+          </li>
+          <li>
+            <p>In the directory for your app, run the generator</p>
+            <pre><code>yo angular-require {app-name}</code></pre>
+          </li>
+        </ol>
+        <br>
+        <p>Presto you now have an app with all the tools listed on the previous slide (plus a few more) installed, 
+          setup and configured with good defaults.</p>
+      </section>
+      <section>
+        <img style="width: 187px;" src="images/logos/Yeoman/yeoman-logo.png">
+        <h2>Generators</h2>
+        <p>As you write code generators help you along the way.</p>
+        <pre><code data-trim>
+angular-require
+angular-require:controller
+angular-require:directive
+angular-require:filter
+angular-require:route
+angular-require:service
+angular-require:provider
+angular-require:factory
+angular-require:value
+angular-require:constant
+angular-require:decorator
+angular-require:view
+        </code></pre>
+      </section>
+      <section>
+        <img style="width: 187px;" src="images/logos/Yeoman/yeoman-logo.png">
+        <h2>Example: The Route Generator</h2>
+        <p>Generates a controller and view, and configures a route in app/scripts/app.js connecting them.</p>
+        <pre><code data-trim>yo angular-require:route myroute</code></pre>
+        <p>Produces app/scripts/controllers/myroute.js:</p>
+        <pre><code data-trim class="javascript js">
+define(['angular'], function (angular) {
+  'use strict';
+  angular.module('myApp.controllers.myrouteCtrl', [])
+    .controller('myrouteCtrl', function ($scope) {
+      // ...
+    });
+});</code></pre>
+        <p>Produces app/views/myroute.html:</p>
+        <pre><code data-trim class="html">
+&lt;p&gt;This is the myroute view&lt;/p&gt;</code></pre>
+      </section>
+      <section>
+        <h2>Conclusion &amp; Review</h2>
+          
+        <table class="review-table">
+          <tr>
+            <td><img class="" style="width: 178px;" style="" src="images/logos/nodejs-dark.png"></td>
+            <td>
+              <strong>Node.js</strong><br>
+              Allows us to run Javascript from the command line. 
+              <hr>
+            </td>
+          </tr>
+          <tr>
+            <td><img class="" style="width: 130px;" src="images/logos/npm.png"></td>
+            <td>
+              <strong>npm</strong><br>
+              Package management for dev suppor tools, supports dependancy management and easy installiation.
+              <hr>
+            </td>
+          </tr>
+          <tr>
+            <td><img class="" style="width: 94px;" src="images/logos/grunt-logo.svg"></td>
+            <td>
+              <strong>Grunt</strong><br>
+              A task runner that makes all the npm modules sane to deal with.
+              <hr>
+            </td>
+          </tr>
+          <tr>
+            <td><img class="" style="width: 178px;" src="images/logos/Karma.png"></td>
+            <td>
+              <strong>Karma</strong><br>
+              Test runner. Runs unit tests with most grunt commands. Errors show up in the console.
+              <hr>
+            </td>
+          </tr>
+          <tr>
+            <td><img class="" style="width: 130px;" src="images/logos/bower-logo.png"></td>
+            <td>
+              <strong>Bower</strong><br>
+              Package management for browser facing tools. Manages dependancies and installing Javascript libs.
+              <hr>
+            </td>
+          </tr>
+          <tr>
+            <td><img class="" style="width: 94px;" src="images/logos/Yeoman/yeoman-logo.png"></td>
+            <td>
+              <strong>Yeoman</strong><br>
+              Sets up and configures new apps. Provides useful generators to use during development.
+              <hr>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h2>Next Time: Part 2</h2>
+        <BR><BR>
+        <h3 style="margin-top: 20px;">Front-End Tools</h3>
+        <img class="" style="width: 255px;" src="images/logos/jQuery-Logo-Dark.png">
+        <img class="" style="width: 255px;" src="images/logos/AngularJS-large.png">
+        <br>
+        <img class="" style="width: 94px;" src="images/logos/Sass/Sass-pink.png">
+        <img class="" style="width: 94px;" src="images/logos/requirejs/logo.png">
+        <img class="" style="width: 84px;" src="images/logos/bootstrap.png">
+      </section>
+      <section>
+        <h1>FIN.</h1>
+      </section>
+    <div>
+  </div>
+
+
+
+
+  <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+  <script src="bower_components/reveal.js/js/reveal.min.js"></script>
+
+  <script>
+   Reveal.initialize({
+    transition: 'linear',
+    backgroundTransition: 'slide',
+    dependencies: [
+        // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+        { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+        // Interpret Markdown in <section> elements
+        { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+        // Syntax highlight for <code> elements
+        { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+        // Zoom in and out with Alt+click
+        { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        // Speaker notes
+        { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        // ,
+
+        // // Remote control your reveal.js presentation using a touch device
+        // { src: 'bower_components/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
+  });
+  </script>
+</body>
+</html>
